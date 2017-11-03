@@ -1,0 +1,97 @@
+MAKE_SOB_FRACTION:
+  PUSH(FP);
+  MOV(FP, SP);
+  PUSH(R1);
+  PUSH(R2);
+  PUSH(R3);
+  
+  
+  MOV(R1, FPARG(0));                        //R1 - mechane
+  MOV(R2, FPARG(1));                        //R2 - mone
+  
+  CMP(R1, 0);
+  JUMP_EQ(MAKE_SOB_FRACTION_ERROR);
+  
+  
+  PUSH(R1);
+  PUSH(R2);
+  
+  PUSH(R1);
+  CALL(MAKE_SOB_INTEGER);
+  DROP(1);
+  PUSH(R0);
+  
+  PUSH(R2);
+  CALL(MAKE_SOB_INTEGER);
+  DROP(1);
+  PUSH(R0);
+  
+  CALL(GCD);
+  DROP(2);
+  
+  POP(R2);
+  POP(R1);
+  DIV(R2, INDD(R0,1));
+  DIV(R1, INDD(R0,1));
+  
+  
+  
+  PUSH(R2);
+  CALL(MAKE_SOB_INTEGER);
+  DROP(1);
+  MOV(R2, R0);
+  
+  PUSH(R1);
+  CALL(MAKE_SOB_INTEGER);
+  DROP(1);
+  MOV(R1, R0);
+  
+  CMP(INDD(R1, 1), 0);
+  JUMP_GE(MAKE_SOB_FRACTION_NO_NEG);
+
+  
+  PUSH(INDD(R1, 1));
+  CALL(ABS);
+  DROP(1);
+  MOV(INDD(R1,1), R0);
+  MOV(R3, 1);
+  NEG(R3);
+  INCR(R3);
+  MUL(INDD(R2, 1), R3);
+  
+  MAKE_SOB_FRACTION_NO_NEG:
+
+  PUSH(IMM(3));
+  CALL(MALLOC);
+  DROP(1);
+  
+  MOV(IND(R0), T_FRACTION);
+  MOV(INDD(R0, 1), R2);
+  MOV(INDD(R0, 2), R1);
+  
+  
+  CMP(INDD(R1,1), 1);
+  JUMP_EQ(MAKE_SOB_FRACTION_INTEGER);
+  
+MAKE_SOB_FRACTION_END:    
+  POP(R3);
+  POP(R2);
+  POP(R1);
+  POP(FP);
+  RETURN;
+
+  
+MAKE_SOB_FRACTION_ERROR:
+    SHOW("FATAL ERROR CANNOT DIVIDE BY ZERO", R0);
+    JUMP(MAKE_SOB_FRACTION_EXIT);
+    
+MAKE_SOB_FRACTION_INTEGER:
+    MOV(R0, R2);
+    JUMP(MAKE_SOB_FRACTION_END);
+    
+    
+MAKE_SOB_FRACTION_EXIT:
+
+  
+  
+  
