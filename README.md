@@ -30,7 +30,7 @@ The copiler generates the final assembly code.
 
 Some more minor exercises that are part of the assignment attached: 
 * remww.scm 
-* sce.scm
+* cse.scm
 
 ## Getting Started
 ### Prerequisites
