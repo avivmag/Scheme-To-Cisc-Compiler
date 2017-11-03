@@ -30,7 +30,7 @@ The copiler generates the final assembly code.
 
 Some more minor exercises that are part of the assignment attached: 
 * remww.scm 
-* cse.scm
+* sce.scm
 
 ## Getting Started
 ### Prerequisites
@@ -48,10 +48,10 @@ Some more minor exercises that are part of the assignment attached:
 2. edit input.scm file as you like - we will compile that file.
 3. run scheme via `scheme` command.
 4. when shell is available, type `(compile-scheme-file "input.scm" "out.c")`, now the compiler build out.c file from compiling the input.scm file.
-5. you can either run the next command on two ways:
-	a. from scheme type: `(begin (system "gcc -o out out.c") (system "out") (display " "))`
-	b. exit scheme via `(exit)`, type `gcc -o out out.c` and then run `out`.
-	both ways should compile the compiled out.c file to a truly runnable linux file.
+5. you can either run the next command on two ways:</br>
+	a. from scheme type: `(begin (system "gcc -o out out.c") (system "out") (display " "))`</br>
+	b. exit scheme via `(exit)`, type `gcc -o out out.c` and then run `out`.</br>
+	both ways should compile the compiled out.c file to a truly runnable linux file.</br>
 6. watch you program being excuted and enjoy :).
 
 ## Built With
