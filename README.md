@@ -61,7 +61,7 @@ Some more minor exercises that are part of the assignment attached:
 
 ## Useful links
 
-* The original source of the assignment: 
+* The original sources of the assignment: 
 	[part 1](https://www.cs.bgu.ac.il/~comp171/wiki.files/hw1.pdf)
 	[part 2](https://www.cs.bgu.ac.il/~comp171/wiki.files/hw2.pdf)
 	[part 3](https://www.cs.bgu.ac.il/~comp171/wiki.files/hw3.pdf)
